@@ -43,7 +43,7 @@ stock void ccp_RemoveChannel(const int index) {
     if((channels = asJSONA(ccp_GetChannelList())) != null) {
         if(index >= 0 && index < channels.Length) {
             if(channels.Remove(index))
-                pckg_SetArtifact(0, CHANNEL_MGR_PKGKEY, channels, 0);
+                pckg_SetArtifact(0, CHANNEL_MGR_PKGKEY, channels);
         }
     }
 
@@ -58,7 +58,7 @@ stock bool ccp_AddChannel(const char[] szTag) {
     JsonArray channels;
     if((channels = asJSONA(ccp_GetChannelList())) != null) {
         if((bSet = channels.PushString(szTag)))
-            bSet = pckg_SetArtifact(0, CHANNEL_MGR_PKGKEY, channels, 0);            
+            bSet = pckg_SetArtifact(0, CHANNEL_MGR_PKGKEY, channels);            
     }
 
     delete channels;
