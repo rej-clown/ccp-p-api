@@ -277,7 +277,7 @@ stock int numlts_stock(const char[] str)
 
     for(int i, b; i < strlen(str); i++)
     {
-        if((b = IsCharMB(szValue[i])))
+        if((b = IsCharMB(str[i])))
             i += b-1;
         
         a++;
